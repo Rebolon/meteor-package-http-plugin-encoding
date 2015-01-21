@@ -1,12 +1,16 @@
-(function() {
+(function funcHttpPluginEncoding() {
 
-  var stdIconv = Meteor.npmRequire('iconv-lite'),
-      stdRequest = Meteor.npmRequire('request'),
+  var stdIconv = Npm.require('iconv-lite'),
+      stdRequest = Npm.require('request'),
       reqestGetSync,
       requestGetAsync = function(url, options, cb) {
         var encoding;
         
         if (typeof options.encoding === 'object') {
+          if (!_.has(options.encoding, 'to')) {
+            throw new Meteor.Error('HttpPluginEncoding, encoding options, if present, require at least "from" or "to"" property');
+          }
+          
           encoding = options.encoding;
           options.encoding = null;
         }
@@ -19,7 +23,9 @@
           }
 
           if (encoding !== undefined) {
-            buf = stdIconv.decode(response.body, encoding.from);
+            buf = response.body;
+            if (typeof encoding.from != undefined) buf = stdIconv.decode(response.body, encoding.from);
+            
             body = stdIconv.encode(buf, encoding.to).toString('binary');
             response.content = body;
           }

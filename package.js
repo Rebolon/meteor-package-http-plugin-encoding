@@ -15,8 +15,14 @@ Package.onUse(function(api) {
   
   api.use(['meteorhacks:npm', 'underscore', 'http']);
   
-  api.addFiles('plugin-encoding.js');
+  api.addFiles(['plugin-encoding.js'], ['server']);
+  
+  // need to export HTTP (if http has not been required by main app) 
+  api.export('HTTP');
 });
+
+Npm.depends({"iconv-lite": "0.4.6",
+    "request": "2.51.0"});
 
 /*
 Package.onTest(function(api) {
