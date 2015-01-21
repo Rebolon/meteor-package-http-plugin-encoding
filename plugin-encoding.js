@@ -1,7 +1,7 @@
 (function() {
 
-  var stdIconv = Npm.require('iconv-lite'),
-      stdRequest = Npm.require('request'),
+  var stdIconv = Meteor.npmRequire('iconv-lite'),
+      stdRequest = Meteor.npmRequire('request'),
       reqestGetSync,
       requestGetAsync = function(url, options, cb) {
         var encoding;
