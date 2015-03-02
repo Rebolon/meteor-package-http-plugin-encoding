@@ -19,7 +19,8 @@
           var buf;
               
           if (err) {
-            throw new Error('Error during "get request": %s', err);
+            console.error('funcHttpPluginEncoding', err);
+            throw new Error('Error during "get request"');
           }
 
           if (encoding !== undefined) {
