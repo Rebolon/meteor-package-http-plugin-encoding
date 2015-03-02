@@ -1,6 +1,6 @@
 Package.describe({
   name: 'rebolon:http-plugin-encoding',
-  version: '0.0.2',
+  version: '0.0.3',
   summary: 'Add method getWithEncoding to HTTP package',
   git: 'https://github.com/Rebolon/meteor-package-http-plugin-encoding.git',
   documentation: 'README.md'
