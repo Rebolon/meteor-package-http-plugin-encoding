@@ -1,11 +1,13 @@
-# HTTP plugin encoding
+# [DEPRECATED] HTTP plugin encoding
+
+DEPRECATED : since HTTP package accept npmRequestOptions, this package is useless. Remove it from your project and use {npmRequestOptions: {encoding: null}} when you use HTTP api.
 
 HTTP plugin encoding is a package that will add an extra methods to HTTP meteor package. 
 
   - getWithEncoding: allow to add extra encoding options to get HTTP request
 
 ### Version
-0.0.1
+0.0.3
 
 ### Tech
 
